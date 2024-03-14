@@ -1,6 +1,6 @@
 from django.urls import path
-from contador.views import receber_dados
+from contador import views
 
 urlpatterns = [
-    path('api/receber_dados/', receber_dados, name='receber_dados'),
+    path('dados/', views.dados_list, name='dados-list'),
 ]

@@ -4,10 +4,16 @@ from rest_framework.response import Response
 from .models import Dados
 from .serializers import DadosSerializer
 
-@api_view(['POST'])
-def receber_dados(request):
-    serializer = DadosSerializer(data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+@api_view(['GET', 'POST'])
+def dados_list(request):
+    if request.method == 'GET':
+        dados = Dados.objects.all()
+        serializer = DadosSerializer(dados, many=True)
+        return Response(serializer.data)
+
+    elif request.method == 'POST':
+        serializer = DadosSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
