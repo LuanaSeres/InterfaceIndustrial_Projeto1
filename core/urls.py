@@ -4,7 +4,7 @@ from rest_framework import routers
 from contador.views import Screen
 
 router = routers.DefaultRouter()
-router.register(r'count', Screen, basename='count')
+router.register(r'contador', Screen, basename='contador')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

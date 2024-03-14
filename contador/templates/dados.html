@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ultimos Dados</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 20px auto;
+        width: 80%;
+        max-width: 600px;
+        
+      }
+      li {
+        padding: 30px;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        flex-direction: column;
+      }
+      div{
+        padding: 5px;
+      }
+      li:last-child {
+        border-bottom: none;
+      }
+      strong {
+        color: #922727;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Ultimos Dados</h1>
+    <ul>
+      {% for obj in contador %}
+      <li>
+        <div>
+          <strong>Sensor:</strong> {{ obj.sensor }}<br/>
+        </div>
+        <div>
+          <strong>Botao:</strong> {{ obj.botao }}<br/>
+        </div>
+        <div>
+          <strong>LigaRobo:</strong> {{ obj.ligaRobo }}<br/>
+        </div>
+        <div>
+          <strong>ResetContador:</strong> {{ obj.resetContador }}<br/>
+        </div>
+        <div>
+          <strong>Valor Contagem:</strong> {{ obj.valorContagem }}<br/>
+        </div>
+        
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
