@@ -1,0 +1,42 @@
+<!-- templates/visualizar_dados.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visualizar Dados</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <h2>Visualizar Dados</h2>
+    {% if dados %}
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Sensor</th>
+          <th scope="col">Botão</th>
+          <th scope="col">Ligar Robô</th>
+          <th scope="col">Resetar Contador</th>
+          <th scope="col">Valor de Contagem</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ dados.sensor }}</td>
+          <td>{{ dados.botao }}</td>
+          <td>{{ dados.ligaRobo }}</td>
+          <td>{{ dados.resetContador }}</td>
+          <td>{{ dados.valorContagem }}</td>
+        </tr>
+      </tbody>
+    </table>
+    {% else %}
+    <p>Nenhum dado disponível.</p>
+    {% endif %}
+  </div>
+</body>
+
+</html>

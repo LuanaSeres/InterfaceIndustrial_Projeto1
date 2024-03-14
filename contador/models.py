@@ -6,3 +6,6 @@ class Dados(models.Model):
     liga_robo = models.BooleanField(default=False)
     reset_contador = models.BooleanField(default=False)
     valor_contagem = models.IntegerField(default=0)
+
+    def __str__(self) -> str:
+        return "Category Entity [%s]" % self.category
